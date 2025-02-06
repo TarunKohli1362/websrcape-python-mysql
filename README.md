@@ -34,6 +34,7 @@ Deploy a MySQL container and attach it to the `scraper_network`:
 docker run -d \
     --name mysql_container \
     -e MYSQL_USER=sayantan \
+    -e MYSQL_PASSWORD=redhat \
     -e MYSQL_ROOT_PASSWORD=redhat \
     -e MYSQL_DATABASE=scraper_db \
     --network scraper_network \
@@ -45,6 +46,10 @@ docker run -d \
 Connect to the MySQL container:
 ```sh
 docker exec -it mysql_container mysql -u root -predhat
+```
+See the databases:
+```sql
+SHOW DATABASES;
 ```
 Select the database:
 ```sql
@@ -81,6 +86,7 @@ docker run -d \
 - The `--name mysql_container` in **Step 2** must match `DB_HOST=mysql_container` in **Step 5**.
 - The `DB_NAME=scraper_db` must be consistent across both MySQL and Scraper configurations.
 - The `MYSQL_USER=sayantan` in **Step 2** must match `DB_USER=sayantan` in **Step 5**.
+- The `MYSQL_PASSWORD=redhat` in **Step 2** must match `DB_PASSWORD=redhat` in **Step 5**.
 - If you encounter connection issues, ensure that **both containers are running** and part of the same network.
 
 ---
