@@ -33,7 +33,7 @@ Deploy a MySQL container and attach it to the `scraper_network`:
 ```sh
 docker run -d \
     --name mysql_container \
-    -e MYSQL_USER=sayantan \
+    -e MYSQL_USER=tarun \
     -e MYSQL_PASSWORD=redhat \
     -e MYSQL_ROOT_PASSWORD=redhat \
     -e MYSQL_DATABASE=scraper_db \
@@ -73,7 +73,7 @@ docker build -t scraper-app:v1 .
 ```sh
 docker run -d \
     -e DB_HOST=mysql_container \
-    -e DB_USER=sayantan \
+    -e DB_USER=tarun \
     -e DB_PASSWORD=redhat \
     -e DB_NAME=scraper_db \
     --network scraper_network \
